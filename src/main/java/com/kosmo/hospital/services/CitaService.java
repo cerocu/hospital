@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -39,25 +40,16 @@ public class CitaService {
 
     public List<Cita> getCitasPorDoctorConsultorioYFecha(Doctor doctor, Consultorio consultorio, Date fechaInicio, Date fechaFin) {
 
-        System.out.println("fechaInicio"+fechaInicio.getTime());
-        return citaRepository.findByDoctorAndConsultorioAndHorarioConsultaBetween(doctor, consultorio, fechaInicio, fechaFin);
-    }
-
-    @Transactional
-    public boolean cancelarCitaSiEsPendiente(Long citaId) {
-        Optional<Cita> citaOptional = citaRepository.findById(citaId);
-
-        if (citaOptional.isPresent()) {
-            Cita cita = citaOptional.get();
-
-            if ("Pendiente".equals(cita.getEstadoCita()) && cita.getHorarioConsulta().after(new Date())) {
-                cita.setEstadoCita("Cancelada");
-                citaRepository.save(cita);
-                return true;
-            }
+          try{
+              return citaRepository.findByDoctorAndConsultorioAndHorarioConsultaBetween(doctor, consultorio, fechaInicio, fechaFin);
+          }
+        catch (Exception e){
+            System.out.println("Error service");
+              return new ArrayList<>();
         }
-        return false;
     }
+
+
 
 
 

@@ -3,6 +3,7 @@ package com.kosmo.hospital.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,6 +12,7 @@ import java.util.Date;
 @Table(name = "citas")
 @Getter
 @Setter
+@ToString
 public class Cita {
 
     @Id

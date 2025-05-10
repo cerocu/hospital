@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -47,8 +48,8 @@ public class CitaController {
     public ResponseEntity<List<Cita>> getCitas(
             @RequestParam Long doctorId,
             @RequestParam Long consultorioId,
-            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaInicio,
-            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFin) {
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date fechaInicio,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date fechaFin) {
 
 
         Doctor doctor = new Doctor();
