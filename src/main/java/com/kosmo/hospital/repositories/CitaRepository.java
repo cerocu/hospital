@@ -30,19 +30,5 @@ public class CitaRepository {
         );
     }
 
-    public boolean cancelarCitaSiEsPendiente(Long citaId) {
-        Optional<Cita> citaOptional = citaCrudRepository.findById(citaId);
 
-        if (citaOptional.isPresent()) {
-            Cita cita = citaOptional.get();
-
-            // Verifica si la cita está pendiente y aún no se ha realizado
-            if (cita.getEstadoCita().equals("Pendiente") && cita.getHorarioConsulta().after(new Date())) {
-                cita.setEstadoCita("Cancelada");
-                citaCrudRepository.save(cita);
-                return true;
-            }
-        }
-        return false;
-    }
 }
