@@ -6,12 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 <html>
 <title>Consultar Citas</title>
 <script>
     function cargarCitas() {
-        fetch('/api/citas')
+        fetch('/api/citas/getcitas')
             .then(response => response.json())
     .then(data => {
             const tabla = document.getElementById('tablaCitas');
