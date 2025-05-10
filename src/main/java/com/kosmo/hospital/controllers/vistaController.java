@@ -35,7 +35,7 @@ public class vistaController {
     private DoctorService doctorService;
 
 
-    @GetMapping("/index")
+    @GetMapping("/consulta")
     public String mostrarConsulta(
                                  // @RequfechaFinestParam(required = false)@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date fechaInicio,
                                   //@RequestParam(required = false)@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date ,
@@ -97,6 +97,6 @@ public class vistaController {
 
         cita.setHorarioConsulta(horario);
         citaService.addCita(cita,"");
-        return "redirect:/citas/index";
+        return "redirect:/citas/consulta";
     }
 }
