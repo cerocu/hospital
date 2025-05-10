@@ -7,6 +7,7 @@ import com.kosmo.hospital.services.CitaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
@@ -61,5 +62,7 @@ public class CitaController {
         List<Cita> citas = citaService.getCitasPorDoctorConsultorioYFecha(doctor, consultorio, fechaInicio, fechaFin);
         return ResponseEntity.ok(citas);
     }
+
+
 
 }

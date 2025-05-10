@@ -4,6 +4,7 @@ package com.kosmo.hospital.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -12,6 +13,7 @@ import java.util.Set;
 @Table(name = "doctores")
 @Getter
 @Setter
+@ToString
 public class Doctor {
 
     @Id
@@ -19,20 +21,21 @@ public class Doctor {
     @Column(name = "doctor_id")
     private Long doctorId;
 
-    @Column(name = "nombre", nullable = false)
-    private String nombre;
+    @Column(name = "apellido_materno", nullable = false)
+    private String apellidoMaterno;
+
 
     @Column(name = "apellido_paterno", nullable = false)
     private String apellidoPaterno;
 
-    @Column(name = "apellido_materno", nullable = false)
-    private String apellidoMaterno;
 
     @Column(name = "especialidad", nullable = false)
     private String especialidad;
 
- /*   @OneToMany(mappedBy = "doctor")
-    private Set<Cita> citas;*/
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
+
+
 
 
 }
